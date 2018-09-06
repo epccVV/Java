@@ -17,25 +17,35 @@ public class SpaceGasStationSimulator
 
 		public class GasPort
 		{
-			private boolean functioning;
-			private SpaceShip occupyingShip;
+			private boolean isFunctioning;
+			private SpaceShipContainer shipContainer;
 
 			public GasPort()
 			{
-				this.functioning = gambleOdds(0.75);
+				this.isFunctioning = gambleOdds(0.75);
 			}
 
-			public boolean dock(SpaceShip arrivingSpaceShip)
+			public boolean tryToDock(SpaceShip arrivingSpaceShip)
 			{
-				if (this.functioning) {
-					occupyingShip = arrivingSpaceShip;
+				if (this.isFunctioning) {
+					shipContainer = new SpaceShipContainer(arrivingSpaceShip);
 					return true;
 				} else return false;
 			}
 
 			public boolean release
 
+			public class SpaceShipContainer
+			{
+				private SpaceShip spaceShip;
 
+				public SpaceShipContainer(SpaceShip containedShip)
+				{
+					this.spaceShip = containedShip;
+				}
+
+				public void add(con)
+			}
 		}
 	}
 
@@ -47,5 +57,5 @@ public class SpaceGasStationSimulator
 		}
 	}
 
-	public static boolean gambleOdds(double percentOfWinning) {	return Math.random() <= percentOfWinning; }
+	public static boolean gambleOdds(double decimalPercentOfWinning) {	return Math.random() <= decimalPercentOfWinning; }
 }
